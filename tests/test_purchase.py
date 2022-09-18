@@ -56,6 +56,19 @@ def test_booking_past_competition(client):
     assert response.status_code == 200
     assert ('This competition is no more available.') in response.data.decode()
 
+def test_purchase_negative_places(client):
+    club = "Simply Lift"
+    competition = "Fall Classic"
+    response = client.post(
+        '/purchasePlaces',
+        data={
+            'club':club,
+            'competition':competition,
+            'places':-1
+            }
+    )
+    assert response.status_code == 200
+    assert ("Please, enter a positive number!") in response.data.decode()
 
 def test_points_updated(client):
     club = "Simply Lift"

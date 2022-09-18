@@ -62,6 +62,8 @@ def purchasePlaces():
     placesRequired = int(request.form['places'])
     if competition['date'] < today:
         flash('This competition is no more available.')
+    elif placesRequired <= 0 :
+        flash("Please, enter a positive number!")
     elif placesRequired > 12:
         flash("You cannot require more than 12 places per competition")
     elif int(club['points']) < placesRequired:
