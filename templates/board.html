@@ -16,11 +16,11 @@
 <ul>
     {% for club in clubs%}
     <li>
-        {{club['name']}}<br />
-        Points: {{club['points']}}</br>
+        {{club['name']}} Points: {{club['points']}}</br>
     </li>
     <hr />
     {% endfor %}
 </ul>
 {%endwith%}
+<a href="{{url_for('index')}}">Return to login page</a>
 {% endblock content %}
