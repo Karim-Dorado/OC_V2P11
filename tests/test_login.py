@@ -1,4 +1,3 @@
- 
 def test_valid_email(client):
     email = "john@simplylift.co"
     response = client.post('/showSummary', data={"email": email})

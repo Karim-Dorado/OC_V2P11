@@ -1,4 +1,3 @@
-from email import message
 import json
 from flask import Flask,render_template,request,redirect,flash,url_for
 
@@ -52,6 +51,8 @@ def purchasePlaces():
     placesRequired = int(request.form['places'])
     if int(club['points']) < placesRequired:
         flash("Not enough points to require this number of places!")
+    elif placesRequired > 12:
+        flash("You cannot require more than 12 places per competition")
     else:
         competition['numberOfPlaces'] = int(competition['numberOfPlaces'])-placesRequired
         flash('Great-booking complete!')
