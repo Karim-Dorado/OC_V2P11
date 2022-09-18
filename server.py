@@ -21,6 +21,7 @@ app.secret_key = 'something_special'
 competitions = loadCompetitions()
 clubs = loadClubs()
 today = str(datetime.today())
+COST = 3
 
 @app.route('/')
 def index():
@@ -66,11 +67,11 @@ def purchasePlaces():
         flash("Please, enter a positive number!")
     elif placesRequired > 12:
         flash("You cannot require more than 12 places per competition")
-    elif int(club['points']) < placesRequired:
+    elif int(club['points']) < (COST*placesRequired):
         flash("Not enough points to require this number of places!")
     else:
         competition['numberOfPlaces'] = int(competition['numberOfPlaces'])-placesRequired
-        club['points'] = int(club['points']) - placesRequired
+        club['points'] = int(club['points']) - (COST*placesRequired)
         flash('Great-booking complete!')
     return render_template('welcome.html',
                            club=club,
