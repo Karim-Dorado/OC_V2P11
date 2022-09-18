@@ -14,14 +14,14 @@ def test_success_booking_places(client):
 
 
 def test_booking_without_enough_points(client):
-    club = "Simply Lift"
+    club = "Iron Temple"
     competition = "Fall Classic"
     response = client.post(
         '/purchasePlaces',
         data={
             'club':club,
             'competition':competition,
-            'places':14
+            'places':5
             }
     )
     assert response.status_code == 200
@@ -50,8 +50,23 @@ def test_booking_past_competition(client):
         data={
             'club':club,
             'competition':competition,
-            'places':12
+            'places':10
             }
     )
     assert response.status_code == 200
     assert ('This competition is no more available.') in response.data.decode()
+
+
+def test_points_updated(client):
+    club = "Simply Lift"
+    competition = "Fall Classic"
+    response = client.post(
+        '/purchasePlaces',
+        data={
+            'club':club,
+            'competition':competition,
+            'places':10
+            }
+    )
+    assert response.status_code == 200
+    assert ("Points available: 3") in response.data.decode()
