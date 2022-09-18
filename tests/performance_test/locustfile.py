@@ -1,7 +1,8 @@
 from locust import HttpUser, task
 
+
 class ProjectPerfTest(HttpUser):
-    
+
     def on_start(self):
         self.client.post("showSummary", {"email": "john@simplylift.co"})
 
