@@ -52,7 +52,7 @@
 
 ## Tests
 
-Test are made with PyTest in the directory /tests.
+Tests are made with PyTest in the directory /tests.
 
 To use Pytest, enter in your terminal:
 ``` pytest ```
@@ -84,4 +84,4 @@ To check the coverage report, enter in your terminal:
 You can also make a coverage html report using the following command in yout terminal:
 ```coverage html ```
 
-Then you can check the report in htmlcov/index.html.
+Then you can check the report in htmlcov/index.html
