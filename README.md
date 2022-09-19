@@ -49,3 +49,46 @@
     We also like to show how well we're testing, so there's a module called 
     [coverage](https://coverage.readthedocs.io/en/coverage-5.1/) you should add to your project.
 
+
+## Tests
+
+    Test are made with PyTest in the directory /tests.
+
+    To use Pytest, enter in your terminal:
+    ``` pytest ```
+
+## Performance tests
+
+    Performance tests are made with Locust.
+
+    To use Locust, enter in your terminal:
+    ``` 
+    cd tests/performance_tests
+    locust -f locustfile.py
+    ```
+
+    Then open your browser and enter :
+    ```
+    http://0.0.0.0:8089
+    ```
+    or
+    ```
+    http://localhost:8089/
+    ```
+
+    Then Start new load test with the following parameters:
+    - Number of users: 6
+    - Spawn rate : 1
+    - Host : http://127.0.0.1:5000 
+
+## Coverage
+
+    To check the coverage report, enter in your terminal:
+    ```
+    coverage run -m pytest 
+    ```
+    You can also make a coverage html report using the following command in yout terminal:
+    ```
+    coverage html 
+    ```
+    Then you can check the report in htmlcov/index.html.
