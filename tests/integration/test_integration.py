@@ -8,9 +8,9 @@ def test_login_and_success_booking_places(client):
     response = client.post(
         '/purchasePlaces',
         data={
-            'club':club,
-            'competition':competition,
-            'places':1
+            'club': club,
+            'competition': competition,
+            'places': 1
             }
     )
     assert response.status_code == 200
@@ -27,9 +27,9 @@ def test_login_and_to_much_booking_places(client):
     response = client.post(
         '/purchasePlaces',
         data={
-            'club':club,
-            'competition':competition,
-            'places':6
+            'club': club,
+            'competition': competition,
+            'places': 6
             }
     )
     assert response.status_code == 200
@@ -46,9 +46,9 @@ def test_login_and_fail_negative_booking_places(client):
     response = client.post(
         '/purchasePlaces',
         data={
-            'club':club,
-            'competition':competition,
-            'places':-1
+            'club': club,
+            'competition': competition,
+            'places': -1
             }
     )
     assert response.status_code == 200
@@ -65,9 +65,9 @@ def test_login_and_purchase_more_than_12_places(client):
     response = client.post(
         '/purchasePlaces',
         data={
-            'club':club,
-            'competition':competition,
-            'places':13
+            'club': club,
+            'competition': competition,
+            'places': 13
             }
     )
     assert response.status_code == 200
