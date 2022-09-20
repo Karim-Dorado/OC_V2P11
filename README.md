@@ -57,6 +57,12 @@ Tests are made with PyTest in the directory /tests.
 To use Pytest, enter in your terminal:
 ``` pytest ```
 
+To run only unit tests, enter in your terminal:
+``` pytest tests/unit ```
+
+To run only intergration tests, enter in your terminal:
+``` pytest tests/integration ```
+
 ## Performance tests
 
 Performance tests are made with Locust.
